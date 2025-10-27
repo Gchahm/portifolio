@@ -32,7 +32,10 @@
   }
 
   :root {
+    --layout-spacing: 1200px;
+
     --background: 0 0% 100%;
+    --layout: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 240 5% 96%;
@@ -69,6 +72,7 @@
 
   [data-theme='dark'] {
     --background: 0 0% 0%;
+    --layout: 0 0% 9%;
     --foreground: 210 40% 98%;
 
     --card: 0 0% 4%;
@@ -106,6 +110,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground min-h-screen flex flex-col;
   }

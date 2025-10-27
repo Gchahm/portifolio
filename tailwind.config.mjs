@@ -66,6 +66,7 @@ const config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        layout: 'hsl(var(--layout))',
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
@@ -106,6 +107,9 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+      },
+      spacing: {
+        layout: 'var(--layout-spacing)',
       },
       typography: () => ({
         DEFAULT: {

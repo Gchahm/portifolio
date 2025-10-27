@@ -33,12 +33,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               preview: isEnabled,
             }}
           />
-
-          <Header />
-          {children}
-          <div className="min-h-100"></div>
-          <div className="min-h-100"></div>
-          <Footer />
+          <div className="flex justify-center">
+            <div className="w-layout bg-layout">
+              <Header />
+              {children}
+              <div className="min-h-100"></div>
+              <div className="min-h-100"></div>
+              <Footer />
+            </div>
+          </div>
         </Providers>
       </body>
     </html>
