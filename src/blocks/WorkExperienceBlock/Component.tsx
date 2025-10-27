@@ -1,17 +1,18 @@
 import clsx from 'clsx'
 import React, { cache } from 'react'
-import { draftMode } from 'next/headers'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
-import { WorkExperience } from '@/payload-types'
 import type { WorkExperienceBlock as WorkExperienceBlockProps } from '@/payload-types'
+import { WorkExperience } from '@/payload-types'
 
 export const WorkExperienceBlock = async (props: WorkExperienceBlockProps) => {
   const docs = await queryWorkExperiences()
 
   return (
-    <div className={clsx('lg:container')}>
-      {props.title}
+    <div>
+      <h2 className="text-2xl font-bold mb-4" id="work-experience">
+        {props.title}
+      </h2>
       <div className="flex flex-col gap-4">
         {docs?.map((doc, index) => (
           <WorkExperienceItem key={index} {...doc} />
@@ -36,15 +37,11 @@ const WorkExperienceItem = (prop: WorkExperience) => {
 }
 
 const queryWorkExperiences = cache(async () => {
-  const { isEnabled: draft } = await draftMode()
-
   const payload = await getPayload({ config: configPromise })
 
   const result = await payload.find({
     collection: 'work-experiences',
-    draft,
     pagination: false,
-    overrideAccess: draft,
   })
 
   return result.docs

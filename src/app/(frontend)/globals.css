@@ -71,7 +71,7 @@
   }
 
   [data-theme='dark'] {
-    --background: 0 0% 0%;
+    --background: 0 0% 5%;
     --layout: 0 0% 9%;
     --foreground: 210 40% 98%;
 
