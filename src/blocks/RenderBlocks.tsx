@@ -40,7 +40,7 @@ export const RenderBlocks: React.FC<{
             if (Block) {
               return (
                 <div
-                  className={cn('my-16 p-6', index % 2 == 0 && 'shadow border border-neutral-800')}
+                  className={cn('my-16 p-6', index % 2 == 0 && 'inse shadow-amber-50 border border-background')}
                   key={index}
                 >
                   {/* @ts-expect-error there may be some mismatch between the expected types here */}

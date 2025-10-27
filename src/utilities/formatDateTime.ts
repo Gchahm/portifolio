@@ -1,20 +1,37 @@
-export const formatDateTime = (timestamp: string): string => {
-  const now = new Date()
-  let date = now
-  if (timestamp) date = new Date(timestamp)
-  const months = date.getMonth()
-  const days = date.getDate()
-  // const hours = date.getHours();
-  // const minutes = date.getMinutes();
-  // const seconds = date.getSeconds();
+export const formatDateTime = (
+  timestamp: string,
+  formatType: 'mm/dd/yyyy' | 'mmyy' = 'mm/dd/yyyy',
+): string => {
+  if (!timestamp) return ''
 
-  const MM = months + 1 < 10 ? `0${months + 1}` : months + 1
-  const DD = days < 10 ? `0${days}` : days
+  const date = new Date(timestamp)
+  if (isNaN(date.getTime())) return ''
+
+  const monthIndex = date.getMonth()
+  const day = date.getDate()
   const YYYY = date.getFullYear()
-  // const AMPM = hours < 12 ? 'AM' : 'PM';
-  // const HH = hours > 12 ? hours - 12 : hours;
-  // const MinMin = (minutes < 10) ? `0${minutes}` : minutes;
-  // const SS = (seconds < 10) ? `0${seconds}` : seconds;
+
+  if (formatType === 'mmyy') {
+    const monthNames = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ]
+    const monthName = monthNames[monthIndex]
+    return `${monthName} ${YYYY}`
+  }
+
+  const MM = monthIndex + 1 < 10 ? `0${monthIndex + 1}` : monthIndex + 1
+  const DD = day < 10 ? `0${day}` : day
 
   return `${MM}/${DD}/${YYYY}`
 }

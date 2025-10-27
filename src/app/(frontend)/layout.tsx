@@ -15,6 +15,7 @@ import { draftMode } from 'next/headers'
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
+import { BackgroundGradient } from '@/components/ui/background-gradient'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
@@ -34,13 +35,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             }}
           />
           <div className="flex justify-center">
-            <div className="w-layout bg-layout">
+            <BackgroundGradient className="rounded-[22px] bg-layout w-layout max-w-layout">
               <Header />
               {children}
               <div className="min-h-100"></div>
               <div className="min-h-100"></div>
               <Footer />
-            </div>
+            </BackgroundGradient>
           </div>
         </Providers>
       </body>
