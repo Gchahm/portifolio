@@ -8,6 +8,8 @@ import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { WorkExperienceBlock } from '@/blocks/WorkExperienceBlock/Component'
+import { ProjectsBlock } from '@/blocks/ProjectsBlock/Component'
+import { cn } from '@/utilities/ui'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -16,6 +18,7 @@ const blockComponents = {
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   workExperienceBlock: WorkExperienceBlock,
+  projectsBlock: ProjectsBlock,
 }
 
 export const RenderBlocks: React.FC<{
@@ -36,7 +39,10 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               return (
-                <div className="my-16 p-6 shadow border border-neutral-800" key={index}>
+                <div
+                  className={cn('my-16 p-6', index % 2 == 0 && 'shadow border border-neutral-800')}
+                  key={index}
+                >
                   {/* @ts-expect-error there may be some mismatch between the expected types here */}
                   <Block {...block} disableInnerContainer />
                 </div>

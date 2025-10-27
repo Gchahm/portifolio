@@ -12,7 +12,7 @@ export const WorkExperienceBlock = async (props: WorkExperienceBlockProps) => {
   return (
     <div className={clsx('lg:container')}>
       {props.title}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-stretch">
+      <div className="flex flex-col gap-4">
         {docs?.map((doc, index) => (
           <WorkExperienceItem key={index} {...doc} />
         ))}

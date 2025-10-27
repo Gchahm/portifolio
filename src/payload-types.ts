@@ -73,6 +73,7 @@ export interface Config {
     categories: Category;
     users: User;
     'work-experiences': WorkExperience;
+    projects: Project;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -90,6 +91,7 @@ export interface Config {
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'work-experiences': WorkExperiencesSelect<false> | WorkExperiencesSelect<true>;
+    projects: ProjectsSelect<false> | ProjectsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -193,7 +195,15 @@ export interface Page {
       | null;
     media?: (string | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | WorkExperienceBlock)[];
+  layout: (
+    | CallToActionBlock
+    | ContentBlock
+    | MediaBlock
+    | ArchiveBlock
+    | FormBlock
+    | WorkExperienceBlock
+    | ProjectsBlock
+  )[];
   meta?: {
     title?: string | null;
     /**
@@ -757,6 +767,16 @@ export interface WorkExperienceBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectsBlock".
+ */
+export interface ProjectsBlock {
+  title: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projectsBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "work-experiences".
  */
 export interface WorkExperience {
@@ -767,6 +787,26 @@ export interface WorkExperience {
   endDate?: string | null;
   description?: string | null;
   techStack?:
+    | {
+        name: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: string;
+  title: string;
+  description?: string | null;
+  image?: (string | null) | Media;
+  githubUrl?: string | null;
+  demoUrl?: string | null;
+  stack?:
     | {
         name: string;
         id?: string | null;
@@ -973,6 +1013,10 @@ export interface PayloadLockedDocument {
         value: string | WorkExperience;
       } | null)
     | ({
+        relationTo: 'projects';
+        value: string | Project;
+      } | null)
+    | ({
         relationTo: 'redirects';
         value: string | Redirect;
       } | null)
@@ -1071,6 +1115,7 @@ export interface PagesSelect<T extends boolean = true> {
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
         workExperienceBlock?: T | WorkExperienceBlockSelect<T>;
+        projectsBlock?: T | ProjectsBlockSelect<T>;
       };
   meta?:
     | T
@@ -1175,6 +1220,15 @@ export interface FormBlockSelect<T extends boolean = true> {
  * via the `definition` "WorkExperienceBlock_select".
  */
 export interface WorkExperienceBlockSelect<T extends boolean = true> {
+  title?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectsBlock_select".
+ */
+export interface ProjectsBlockSelect<T extends boolean = true> {
   title?: T;
   id?: T;
   blockName?: T;
@@ -1357,6 +1411,25 @@ export interface WorkExperiencesSelect<T extends boolean = true> {
   endDate?: T;
   description?: T;
   techStack?:
+    | T
+    | {
+        name?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects_select".
+ */
+export interface ProjectsSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  image?: T;
+  githubUrl?: T;
+  demoUrl?: T;
+  stack?:
     | T
     | {
         name?: T;
