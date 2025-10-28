@@ -18,6 +18,13 @@ export const WorkExperiences: CollectionConfig = {
   },
   fields: [
     {
+      name: 'image',
+      type: 'upload',
+      label: 'Company Logo',
+      relationTo: 'media',
+      required: false,
+    },
+    {
       name: 'companyName',
       type: 'text',
       label: 'Company Name',

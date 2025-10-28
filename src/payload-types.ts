@@ -781,6 +781,7 @@ export interface ProjectsBlock {
  */
 export interface WorkExperience {
   id: string;
+  image?: (string | null) | Media;
   companyName: string;
   jobTitle: string;
   startDate: string;
@@ -2199,6 +2200,7 @@ export interface UsersSelect<T extends boolean = true> {
  * via the `definition` "work-experiences_select".
  */
 export interface WorkExperiencesSelect<T extends boolean = true> {
+  image?: T;
   companyName?: T;
   jobTitle?: T;
   startDate?: T;
