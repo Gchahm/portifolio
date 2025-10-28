@@ -43,7 +43,7 @@ const WorkExperienceItem = (prop: WorkExperience) => {
           {techStack?.map((tech, index) => (
             <span
               key={index}
-              className="text-xs px-2 py-1 rounded bg-neutral-900 border border-neutral-800"
+              className="text-xs p-2 rounded-full bg-neutral-900 border border-neutral-800"
             >
               <StackIcon name={tech.name} className="h-4 w-4" />
             </span>

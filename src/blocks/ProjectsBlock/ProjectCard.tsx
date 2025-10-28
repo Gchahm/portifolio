@@ -5,6 +5,7 @@ import { Project } from '@/payload-types'
 import { motion } from 'motion/react'
 import { GlowingEffect } from '@/components/ui/glowing-effect'
 import { Variants } from 'motion'
+import StackIcon from 'tech-stack-icons'
 
 const variants = {
   initial: {
@@ -48,14 +49,14 @@ export const ProjectCard = (project: Project) => {
         </motion.div>
       )}
       <motion.div variants={variants} className="flex flex-col gap-2">
-        <h3 className="text-xl font-bold">{title}</h3>
+        <h3 className="font-semibold">{title}</h3>
         {description && <p className="text-sm text-gray-400">{description}</p>}
       </motion.div>
       {(githubUrl || demoUrl) && (
         <div className="flex gap-3">
           {githubUrl && (
             <a className="text-sm underline" href={githubUrl} target="_blank" rel="noreferrer">
-              GitHub
+              <StackIcon name="github" className="h-4 w-4" />
             </a>
           )}
           {demoUrl && (
