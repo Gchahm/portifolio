@@ -13,7 +13,7 @@ export async function Footer() {
   return (
     <footer className="mt-auto border-t border-border">
       <div className="container gap-8 flex flex-col md:flex-row md:justify-between">
-        <Link className="flex items-center" href="/">hello</Link>
+        <Link className="flex items-center" href="/"></Link>
 
         <div className="flex flex-col-reverse items-start md:flex-row gap-4 md:items-center">
           <nav className="flex flex-col md:flex-row gap-4">

@@ -12,6 +12,7 @@ export const WorkExperiences: CollectionConfig = {
     read: authenticatedOrPublished,
     update: authenticated,
   },
+  orderable: true,
   admin: {
     useAsTitle: 'companyName',
     defaultColumns: ['companyName', 'startDate', 'endDate', 'updatedAt'],

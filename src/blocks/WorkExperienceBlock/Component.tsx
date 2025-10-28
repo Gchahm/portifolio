@@ -14,7 +14,7 @@ export const WorkExperienceBlock = async (props: WorkExperienceBlockProps) => {
       <h2 className="text-2xl font-bold mb-4" id="work-experience">
         {props.title}
       </h2>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-10">
         {docs?.map((doc, index) => (
           <WorkExperienceItem key={index} {...doc} />
         ))}
@@ -28,17 +28,18 @@ const WorkExperienceItem = (prop: WorkExperience) => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-col gap-2">
-        <h3 className="text-xl">{companyName}</h3>
-        <p className="text-sm">
-          {jobTitle}
-          <span className="pl-2 text-neutral-400">{formatDateTime(startDate, 'mmyy')}</span>
-          <span className="text-neutral-400">
-            {endDate ? ` - ${formatDateTime(endDate, 'mmyy')}` : 'present'}
-          </span>
-        </p>
-        <p className="text-sm text-neutral-500">{description}</p>
-
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
+          <h3 className="text-xl">{companyName}</h3>
+          <p>
+            <span className="text-semibold">{jobTitle}</span>
+            <span className="text-sm pl-2 text-neutral-400">
+              {formatDateTime(startDate, 'mmyy')}
+              {endDate ? ` - ${formatDateTime(endDate, 'mmyy')}` : ' - present'}
+            </span>
+          </p>
+          <p className="text-sm text-neutral-500">{description}</p>
+        </div>
         <div className="flex gap-2">
           <AnimatedTooltip
             items={
