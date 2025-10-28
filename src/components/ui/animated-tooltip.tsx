@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useState, useRef } from 'react'
-import { motion, useTransform, AnimatePresence, useMotionValue, useSpring } from 'motion/react'
-import StackIcon from 'tech-stack-icons'
+import React, { useRef, useState } from 'react'
+import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from 'motion/react'
+import { IsolatedIcon } from '@/components/ui/isolated-icon'
 
 export const AnimatedTooltip = ({
   items,
@@ -70,10 +70,10 @@ export const AnimatedTooltip = ({
           </AnimatePresence>
 
           <div
-            className="relative !m-0 h-8 w-8 rounded-full border-2 border-white !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105 bg-layout"
+            className="relative !m-0 h-8 w-8 rounded-full overflow-clip border-2 bg-white border-black !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105"
             onMouseMove={handleMouseMove}
           >
-            <StackIcon name={item.name} />
+            <IsolatedIcon key={idx} name={item.name} />
           </div>
         </div>
       ))}
