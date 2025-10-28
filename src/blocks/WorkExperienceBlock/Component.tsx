@@ -32,12 +32,12 @@ const WorkExperienceItem = (prop: WorkExperience) => {
         <h3 className="text-xl">{companyName}</h3>
         <p className="text-sm">
           {jobTitle}
-          <span className="pl-2 text-gray-500">{formatDateTime(startDate, 'mmyy')}</span>
-          <span className="text-gray-500">
+          <span className="pl-2 text-neutral-400">{formatDateTime(startDate, 'mmyy')}</span>
+          <span className="text-neutral-400">
             {endDate ? ` - ${formatDateTime(endDate, 'mmyy')}` : 'present'}
           </span>
         </p>
-        <p className="text-sm text-gray-500">{description}</p>
+        <p className="text-sm text-neutral-500">{description}</p>
 
         <div className="flex gap-2">
           <AnimatedTooltip

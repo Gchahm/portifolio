@@ -34,11 +34,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             }}
           />
           <div className="flex justify-center">
-            <div className="bg-layout w-layout max-w-layout">
-              <Header />
-              {children}
-              <div className="min-h-100"></div>
-              <div className="min-h-100"></div>
+            <div className="flex flex-col bg-layout">
+              <div className="flex">
+                <div className="w-6 diagonal-pattern h-full"></div>
+                <div className="w-layout max-w-layout min-h-screen">
+                  <Header />
+                  {children}
+                </div>
+                <div className="w-6 diagonal-pattern h-full"></div>
+              </div>
               <Footer />
             </div>
           </div>
