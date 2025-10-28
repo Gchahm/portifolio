@@ -1,51 +1,27 @@
 'use client'
 
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import React, { useState } from 'react'
+import React from 'react'
 
-import type { Theme } from './types'
-
-import { useTheme } from '..'
 import { themeLocalStorageKey } from './types'
 
-export const ThemeSelector: React.FC = () => {
-  const { setTheme } = useTheme()
-  const [value, setValue] = useState('')
+import { useTheme } from '..'
+import { MoonIcon, SunIcon } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
-  const onThemeChange = (themeToSet: Theme & 'auto') => {
-    if (themeToSet === 'auto') {
-      setTheme(null)
-      setValue('auto')
-    } else {
-      setTheme(themeToSet)
-      setValue(themeToSet)
-    }
-  }
+export const ThemeSelector: React.FC = () => {
+  const { setTheme, theme } = useTheme()
 
   React.useEffect(() => {
     const preference = window.localStorage.getItem(themeLocalStorageKey)
-    setValue(preference ?? 'auto')
   }, [])
 
   return (
-    <Select onValueChange={onThemeChange} value={value}>
-      <SelectTrigger
-        aria-label="Select a theme"
-        className="w-auto bg-transparent gap-2 pl-0 md:pl-3 border-none"
-      >
-        <SelectValue placeholder="Theme" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectItem value="auto">Auto</SelectItem>
-        <SelectItem value="light">Light</SelectItem>
-        <SelectItem value="dark">Dark</SelectItem>
-      </SelectContent>
-    </Select>
+    <Button
+      className="relative z-20 bg-transparent p-0.5 text-foreground hover:bg-transparent"
+      onClick={() => setTheme(theme == 'dark' ? 'light' : 'dark')}
+    >
+      {' '}
+      {theme == 'dark' ? <SunIcon size={16} /> : <MoonIcon size={16} />}
+    </Button>
   )
 }

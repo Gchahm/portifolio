@@ -34,7 +34,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             }}
           />
           <div className="flex justify-center">
-            <div className="rounded-[22px] bg-layout w-layout max-w-layout">
+            <div className="bg-layout w-layout max-w-layout">
               <Header />
               {children}
               <div className="min-h-100"></div>

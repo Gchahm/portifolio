@@ -15,6 +15,7 @@ import {
   NavItems,
   NavItemsProps,
 } from '@/components/ui/resizable-navbar'
+import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 
 export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
@@ -33,6 +34,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
       {/* Desktop Navigation */}
       <NavBody>
         <NavbarLogo />
+        <ThemeSelector />
         <NavItems items={navItems} />
       </NavBody>
 
