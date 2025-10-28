@@ -4,7 +4,7 @@ import configPromise from '@payload-config'
 import type { WorkExperienceBlock as WorkExperienceBlockProps } from '@/payload-types'
 import { WorkExperience } from '@/payload-types'
 import { formatDateTime } from '@/utilities/formatDateTime'
-import StackIcon from 'tech-stack-icons'
+import { AnimatedTooltip } from '@/components/ui/animated-tooltip'
 
 export const WorkExperienceBlock = async (props: WorkExperienceBlockProps) => {
   const docs = await queryWorkExperiences()
@@ -40,14 +40,14 @@ const WorkExperienceItem = (prop: WorkExperience) => {
         <p className="text-sm text-gray-500">{description}</p>
 
         <div className="flex gap-2">
-          {techStack?.map((tech, index) => (
-            <span
-              key={index}
-              className="text-xs p-2 rounded-full bg-neutral-900 border border-neutral-800"
-            >
-              <StackIcon name={tech.name} className="h-4 w-4" />
-            </span>
-          ))}
+          <AnimatedTooltip
+            items={
+              techStack?.map((stack, index) => ({
+                id: index,
+                name: stack.name || '',
+              })) || []
+            }
+          />
         </div>
       </div>
     </div>
