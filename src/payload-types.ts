@@ -1200,6 +1200,7 @@ export interface WorkExperience {
  */
 export interface Project {
   id: string;
+  _order?: string | null;
   title: string;
   description?: string | null;
   image?: (string | null) | Media;
@@ -2222,6 +2223,7 @@ export interface WorkExperiencesSelect<T extends boolean = true> {
  * via the `definition` "projects_select".
  */
 export interface ProjectsSelect<T extends boolean = true> {
+  _order?: T;
   title?: T;
   description?: T;
   image?: T;

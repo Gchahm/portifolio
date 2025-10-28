@@ -32,7 +32,7 @@ export const AnimatedTooltip = ({
   }
 
   return (
-    <>
+    <div className="flex gap-2">
       {items.map((item, idx) => (
         <div
           className="group relative -mr-4"
@@ -70,13 +70,13 @@ export const AnimatedTooltip = ({
           </AnimatePresence>
 
           <div
-            className="relative !m-0 h-8 w-8 rounded-full overflow-clip border-2 bg-white border-black !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105"
+            className="relative !m-0 h-8 w-8 rounded-full overflow-clip border-2 bg-layout border-black dark:border-white !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105"
             onMouseMove={handleMouseMove}
           >
-            <IsolatedIcon key={idx} name={item.name} />
+            <IsolatedIcon key={idx} name={item.name} className="relative" />
           </div>
         </div>
       ))}
-    </>
+    </div>
   )
 }

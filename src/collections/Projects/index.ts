@@ -12,6 +12,7 @@ export const Projects: CollectionConfig<'projects'> = {
     read: authenticatedOrPublished,
     update: authenticated,
   },
+  orderable: true,
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'githubUrl', 'demoUrl', 'updatedAt'],

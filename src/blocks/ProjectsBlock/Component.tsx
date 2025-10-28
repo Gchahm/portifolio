@@ -3,7 +3,7 @@ import React, { cache } from 'react'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import type { ProjectsBlock as ProjectsBlockProps } from '@/payload-types'
-import { ProjectCard } from '@/blocks/ProjectsBlock/ProjectCard'
+import { ProjectCard } from '@/blocks/ProjectsBlock/project-card'
 
 export const ProjectsBlock = async (props: ProjectsBlockProps) => {
   const docs = await queryProjects()

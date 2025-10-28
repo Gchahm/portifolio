@@ -40,16 +40,14 @@ const WorkExperienceItem = (prop: WorkExperience) => {
           </p>
           <p className="text-sm text-neutral-500">{description}</p>
         </div>
-        <div className="flex gap-2">
-          <AnimatedTooltip
-            items={
-              techStack?.map((stack, index) => ({
-                id: index,
-                name: stack.name || '',
-              })) || []
-            }
-          />
-        </div>
+        <AnimatedTooltip
+          items={
+            techStack?.map((stack, index) => ({
+              id: index,
+              name: stack.name || '',
+            })) || []
+          }
+        />
       </div>
     </div>
   )
