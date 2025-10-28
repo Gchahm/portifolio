@@ -1,6 +1,3 @@
-import fs from 'fs'
-import { createRequire } from 'module'
-
 export type Option = {
   label: string
   value: string

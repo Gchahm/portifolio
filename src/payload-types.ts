@@ -188,7 +188,7 @@ export interface Page {
             /**
              * Choose how the link should be rendered.
              */
-            appearance?: ('default' | 'outline-solid') | null;
+            appearance?: ('default' | 'outline') | null;
           };
           id?: string | null;
         }[]
@@ -452,7 +452,7 @@ export interface CallToActionBlock {
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: ('default' | 'outline-solid') | null;
+          appearance?: ('default' | 'outline') | null;
         };
         id?: string | null;
       }[]
@@ -502,7 +502,7 @@ export interface ContentBlock {
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: ('default' | 'outline-solid') | null;
+          appearance?: ('default' | 'outline') | null;
         };
         id?: string | null;
       }[]

@@ -3,9 +3,7 @@
 import React from 'react'
 import { Project } from '@/payload-types'
 import { motion } from 'motion/react'
-import { GlowingEffect } from '@/components/ui/glowing-effect'
 import { Variants } from 'motion'
-import StackIcon from 'tech-stack-icons'
 import { AnimatedTooltip } from '@/components/ui/animated-tooltip'
 import { IsolatedIcon } from '@/components/ui/isolated-icon'
 
