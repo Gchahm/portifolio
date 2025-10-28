@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import { authenticated } from '@/access/authenticated'
 import { authenticatedOrPublished } from '@/access/authenticatedOrPublished'
+import { getTechStackIconOptions } from '@/util/techStackIcons'
 
 export const Projects: CollectionConfig<'projects'> = {
   slug: 'projects',
@@ -55,9 +56,13 @@ export const Projects: CollectionConfig<'projects'> = {
       fields: [
         {
           name: 'name',
-          type: 'text',
-          label: 'Name',
+          type: 'select',
+          label: 'Icon',
           required: true,
+          options: getTechStackIconOptions(),
+          admin: {
+            isClearable: true,
+          },
         },
       ],
     },

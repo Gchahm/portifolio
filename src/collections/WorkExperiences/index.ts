@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import { authenticated } from '@/access/authenticated'
 import { authenticatedOrPublished } from '@/access/authenticatedOrPublished'
+import { getTechStackIconOptions } from '@/util/techStackIcons'
 
 export const WorkExperiences: CollectionConfig = {
   slug: 'work-experiences',
@@ -67,9 +68,13 @@ export const WorkExperiences: CollectionConfig = {
       fields: [
         {
           name: 'name',
-          type: 'text',
-          label: 'Name',
+          type: 'select',
+          label: 'Icon',
           required: true,
+          options: getTechStackIconOptions(),
+          admin: {
+            isClearable: true,
+          },
         },
       ],
     },

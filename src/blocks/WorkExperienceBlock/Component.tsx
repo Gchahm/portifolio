@@ -4,6 +4,7 @@ import configPromise from '@payload-config'
 import type { WorkExperienceBlock as WorkExperienceBlockProps } from '@/payload-types'
 import { WorkExperience } from '@/payload-types'
 import { formatDateTime } from '@/utilities/formatDateTime'
+import StackIcon from 'tech-stack-icons'
 
 export const WorkExperienceBlock = async (props: WorkExperienceBlockProps) => {
   const docs = await queryWorkExperiences()
@@ -23,7 +24,7 @@ export const WorkExperienceBlock = async (props: WorkExperienceBlockProps) => {
 }
 
 const WorkExperienceItem = (prop: WorkExperience) => {
-  const { companyName, jobTitle, startDate, endDate, description } = prop
+  const { companyName, jobTitle, startDate, endDate, description, techStack } = prop
 
   return (
     <div className="flex flex-col gap-4">
@@ -37,6 +38,17 @@ const WorkExperienceItem = (prop: WorkExperience) => {
           </span>
         </p>
         <p className="text-sm text-gray-500">{description}</p>
+
+        <div className="flex gap-2">
+          {techStack?.map((tech, index) => (
+            <span
+              key={index}
+              className="text-xs px-2 py-1 rounded bg-neutral-900 border border-neutral-800"
+            >
+              <StackIcon name={tech.name} className="h-4 w-4" />
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   )
