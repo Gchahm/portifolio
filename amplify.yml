@@ -4,19 +4,15 @@ frontend:
     preBuild:
       commands:
         - corepack enable
-        - corepack prepare pnpm@latest --activate
         - pnpm install --frozen-lockfile
     build:
       commands:
-        - env NODE_OPTIONS="--max-old-space-size=8192" pnpm build
-        - cp -r .next/static .next/standalone/.next/
-        - cp -r public .next/standalone/
+        - pnpm build
   artifacts:
-    baseDirectory: .next/standalone
+    baseDirectory: .next
     files:
       - '**/*'
   cache:
     paths:
-      - .pnpm-store/**/*
-      - node_modules/**/*
+      - $(pnpm store path)
       - .next/cache/**/*
