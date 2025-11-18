@@ -94,13 +94,4 @@ export const plugins: Plugin[] = [
       },
     },
   }),
-  s3Storage({
-    collections: {
-      media: true,
-    },
-    bucket: outputs.storage.bucket_name,
-    config: {
-      region: outputs.storage.aws_region,
-    },
-  }),
 ]
