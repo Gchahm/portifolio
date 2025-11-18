@@ -8,9 +8,11 @@ frontend:
         - pnpm install --frozen-lockfile
     build:
       commands:
-        - pnpm build
+        - env NODE_OPTIONS="--max-old-space-size=8192" pnpm build
+        - cp -r .next/static .next/standalone/.next/
+        - cp -r public .next/standalone/
   artifacts:
-    baseDirectory: .next
+    baseDirectory: .next/standalone
     files:
       - '**/*'
   cache:
