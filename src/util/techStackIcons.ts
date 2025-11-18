@@ -280,7 +280,6 @@ const icons = [
   'pinia',
   'pixijs',
   'pixverse',
-  'playwright',
   'poe',
   'postgresql',
   'postman',
