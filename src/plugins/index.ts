@@ -12,11 +12,6 @@ import { beforeSyncWithSearch } from '@/search/beforeSync'
 
 import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
-import { s3Storage } from '@payloadcms/storage-s3'
-import * as outputs from '../../amplify_outputs.json'
-import { Amplify } from 'aws-amplify'
-
-Amplify.configure(outputs)
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
