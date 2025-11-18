@@ -12,6 +12,11 @@ import { beforeSyncWithSearch } from '@/search/beforeSync'
 
 import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
+import { s3Storage } from '@payloadcms/storage-s3'
+import amplifyOutputs from '../../amplify_outputs.json'
+import { Amplify } from 'aws-amplify'
+
+Amplify.configure(amplifyOutputs)
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
@@ -87,6 +92,15 @@ export const plugins: Plugin[] = [
       fields: ({ defaultFields }) => {
         return [...defaultFields, ...searchFields]
       },
+    },
+  }),
+  s3Storage({
+    collections: {
+      media: true,
+    },
+    bucket: amplifyOutputs.storage.bucket_name,
+    config: {
+      region: amplifyOutputs.storage.aws_region,
     },
   }),
 ]
