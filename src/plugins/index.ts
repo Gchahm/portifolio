@@ -101,6 +101,10 @@ export const plugins: Plugin[] = [
     bucket: amplifyOutputs.storage.bucket_name,
     config: {
       region: amplifyOutputs.storage.aws_region,
+      credentials: {
+        accessKeyId: process.env.ACCESS_KEY_ID!,
+        secretAccessKey: process.env.SECRET_ACCESS_KEY!,
+      },
     },
   }),
 ]
