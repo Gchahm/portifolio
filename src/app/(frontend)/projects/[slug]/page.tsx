@@ -9,6 +9,7 @@ import React, { cache } from 'react'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
+import { GitHubReadme } from '@/components/GitHubReadme'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -44,14 +45,10 @@ export default async function ProjectPage({ params: paramsPromise }: Args) {
   if (!project) return <PayloadRedirects url={url} />
 
   return (
-    <article className="pt-16 pb-16">
+    <article className="pb-16">
       <PageClient />
-
       <PayloadRedirects disableNotFound url={url} />
-
-      {draft && <LivePreviewListener />}
-
-      <ProjectHero project={project} />
+      {project.githubUrl && <GitHubReadme githubUrl={project.githubUrl} />}
     </article>
   )
 }
