@@ -3,6 +3,7 @@ import type { CollectionConfig } from 'payload'
 import { authenticated } from '@/access/authenticated'
 import { authenticatedOrPublished } from '@/access/authenticatedOrPublished'
 import { getTechStackIconOptions } from '@/util/techStackIcons'
+import { slugField } from 'payload'
 
 export const Projects: CollectionConfig<'projects'> = {
   slug: 'projects',
@@ -12,10 +13,13 @@ export const Projects: CollectionConfig<'projects'> = {
     read: authenticatedOrPublished,
     update: authenticated,
   },
+  defaultPopulate: {
+    slug: true,
+  },
   orderable: true,
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'githubUrl', 'demoUrl', 'updatedAt'],
+    defaultColumns: ['title', 'slug', 'githubUrl', 'demoUrl', 'updatedAt'],
   },
   fields: [
     {
@@ -24,6 +28,7 @@ export const Projects: CollectionConfig<'projects'> = {
       label: 'Title',
       required: true,
     },
+    slugField(),
     {
       name: 'description',
       type: 'textarea',

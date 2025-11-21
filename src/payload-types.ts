@@ -1201,6 +1201,11 @@ export interface Project {
   id: string;
   _order?: string | null;
   title: string;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
   description?: string | null;
   image?: (string | null) | Media;
   githubUrl?: string | null;
@@ -2223,6 +2228,8 @@ export interface WorkExperiencesSelect<T extends boolean = true> {
 export interface ProjectsSelect<T extends boolean = true> {
   _order?: T;
   title?: T;
+  generateSlug?: T;
+  slug?: T;
   description?: T;
   image?: T;
   githubUrl?: T;
