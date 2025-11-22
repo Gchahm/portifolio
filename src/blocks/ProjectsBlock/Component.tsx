@@ -9,14 +9,16 @@ export const ProjectsBlock = async (props: ProjectsBlockProps) => {
   const docs = await queryProjects()
 
   return (
-    <div>
-      {props.title}
+    <>
+      <h2 className="text-2xl font-bold mb-4">
+        {props.title}
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2 items-stretch">
         {docs?.map((doc, index) => (
           <ProjectCard key={index} {...doc} />
         ))}
       </div>
-    </div>
+    </>
   )
 }
 const queryProjects = cache(async () => {

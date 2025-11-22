@@ -10,8 +10,8 @@ export const WorkExperienceBlock = async (props: WorkExperienceBlockProps) => {
   const docs = await queryWorkExperiences()
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-4" id="work-experience">
+    <>
+      <h2 className="text-2xl font-bold mb-4" >
         {props.title}
       </h2>
       <div className="flex flex-col gap-10">
@@ -19,7 +19,7 @@ export const WorkExperienceBlock = async (props: WorkExperienceBlockProps) => {
           <WorkExperienceItem key={index} {...doc} />
         ))}
       </div>
-    </div>
+    </>
   )
 }
 

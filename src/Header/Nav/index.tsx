@@ -20,14 +20,21 @@ import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
 
-  const navItems: NavItemsProps['items'] = React.useMemo(
-    () =>
+  const navItems: NavItemsProps['items'] = React.useMemo(() => {
+    const cmsNavItems =
       data?.navItems?.map((item) => ({
         name: item.link.label,
         link: item.link.url || '',
-      })) || [],
-    [data],
-  )
+      })) || []
+
+    // Add section links for Projects and Work Experiences
+    const sectionLinks = [
+      { name: 'Projects', link: '#projectsBlock' },
+      { name: 'Work Experience', link: '#workExperienceBlock' },
+    ]
+
+    return [...cmsNavItems, ...sectionLinks]
+  }, [data])
 
   return (
     <Navbar>

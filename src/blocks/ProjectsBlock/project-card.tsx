@@ -53,7 +53,9 @@ export const ProjectCard = (project: Project) => {
             <p className="font-semibold text-sm">{title}</p>
           </div>
         </Link>
-        <div className="aspect-square bg-muted rounded-md mb-3 flex items-center justify-center overflow-hidden"></div>
+        <div className="aspect-square bg-muted rounded-md mb-3 flex items-center justify-center overflow-hidden">
+          <img src={imageDoc?.url || ''} alt={title || ''} className="object-cover" />
+        </div>
       </CardHeader>
       <CardContent className="space-y-3">
         {<CardDescription className="line-clamp-3">{description}</CardDescription>}
