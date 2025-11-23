@@ -10,7 +10,7 @@ import { GithubSvg } from '@/components/ui/svgs'
 import { Eye } from 'lucide-react'
 
 export const ProjectCard = (project: Project) => {
-  const { title, description, slug, image, githubUrl, demoUrl, stack } = project
+  const { title, description, slug, image, githubUrl, demoUrl, keywords } = project
   const imageDoc = typeof image === 'object' && image !== null && 'url' in image ? image : null
 
   return (
@@ -29,12 +29,13 @@ export const ProjectCard = (project: Project) => {
         </Link>
         {<CardDescription className="line-clamp-3">{description}</CardDescription>}
         <Separator />
-        <div className="flex items-center gap-4 text-sm text-muted-foreground"></div>
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          {stack?.map((item, i) => (
-            <Badge key={i}>{item.name}</Badge>
+        <ul className="flex flex-wrap gap-2">
+          {keywords?.map((item, i) => (
+            <li key={i}>
+              <Badge>{item}</Badge>
+            </li>
           ))}
-        </div>
+        </ul>
         <div className="flex flex-row-reverse gap-2">
           {demoUrl && (
             <Link href={demoUrl} target="_blank" rel="noopener noreferrer">
