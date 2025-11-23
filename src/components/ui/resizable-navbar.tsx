@@ -1,6 +1,5 @@
 'use client'
 import { cn } from '@/utilities/ui'
-// import { IconMenu2, IconX } from "@tabler/icons-react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react'
 
 import React, { useRef, useState } from 'react'

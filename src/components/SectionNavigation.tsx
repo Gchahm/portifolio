@@ -11,12 +11,6 @@ interface SectionNavigationProps {
 export const SectionNavigation: React.FC<SectionNavigationProps> = ({ blocks }) => {
   const [activeSection, setActiveSection] = useState<string>('')
 
-  const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
-
-  if (!hasBlocks) {
-    return null
-  }
-
   // Extract section IDs and names from blocks
   const sections = blocks
     .map((block, index) => {
@@ -25,17 +19,6 @@ export const SectionNavigation: React.FC<SectionNavigationProps> = ({ blocks }) 
       return { id, name }
     })
     .filter((section) => section.id)
-
-  if (sections.length === 0) {
-    return null
-  }
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-  }
 
   // Track active section on scroll
   useEffect(() => {
@@ -67,6 +50,23 @@ export const SectionNavigation: React.FC<SectionNavigationProps> = ({ blocks }) 
       observer.disconnect()
     }
   }, [sections])
+
+  const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
+
+  if (!hasBlocks) {
+    return null
+  }
+
+  if (sections.length === 0) {
+    return null
+  }
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 
   return (
     <nav className="my-20">

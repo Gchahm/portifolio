@@ -1,5 +1,3 @@
-import { ProjectHero } from '@/heros/ProjectHero'
-
 import type { Metadata } from 'next'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
@@ -8,7 +6,6 @@ import { draftMode } from 'next/headers'
 import React, { cache } from 'react'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
-import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { GitHubReadme } from '@/components/GitHubReadme'
 import Link from 'next/link'
 

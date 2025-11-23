@@ -2,8 +2,6 @@
 
 import React from 'react'
 
-import { themeLocalStorageKey } from './types'
-
 import { useTheme } from '..'
 import { MoonIcon, SunIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'

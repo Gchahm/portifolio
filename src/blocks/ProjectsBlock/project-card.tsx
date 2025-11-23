@@ -32,7 +32,7 @@ export const ProjectCard = (project: Project) => {
         <div className="flex items-center gap-4 text-sm text-muted-foreground"></div>
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           {stack?.map((item, i) => (
-            <Badge>{item.name}</Badge>
+            <Badge key={i}>{item.name}</Badge>
           ))}
         </div>
         <div className="flex flex-row-reverse gap-2">
