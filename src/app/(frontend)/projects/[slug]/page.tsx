@@ -10,6 +10,7 @@ import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { GitHubReadme } from '@/components/GitHubReadme'
+import Link from 'next/link'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -46,6 +47,27 @@ export default async function ProjectPage({ params: paramsPromise }: Args) {
 
   return (
     <article className="pb-16">
+      <div className="mb-8">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-sm font-medium hover:underline"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+          Back to Home
+        </Link>
+      </div>
       <PageClient />
       <PayloadRedirects disableNotFound url={url} />
       {project.githubUrl && <GitHubReadme githubUrl={project.githubUrl} />}
