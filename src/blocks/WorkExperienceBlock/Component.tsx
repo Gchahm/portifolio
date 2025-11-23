@@ -2,54 +2,21 @@ import React, { cache } from 'react'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import type { WorkExperienceBlock as WorkExperienceBlockProps } from '@/payload-types'
-import { WorkExperience } from '@/payload-types'
-import { formatDateTime } from '@/utilities/formatDateTime'
-import { AnimatedTooltip } from '@/components/ui/animated-tooltip'
+import { WorkExperienceCard } from './wrok-experience-card'
 
 export const WorkExperienceBlock = async (props: WorkExperienceBlockProps) => {
   const docs = await queryWorkExperiences()
 
   return (
     <>
-      <h2 className="text-2xl font-bold mb-4" >
-        {props.title}
-      </h2>
-      <div className="flex flex-col gap-10">
+      <ul className="group/list list-none">
         {docs?.map((doc, index) => (
-          <WorkExperienceItem key={index} {...doc} />
+          <li key={index} className="mb-12">
+            <WorkExperienceCard key={index} {...doc} />
+          </li>
         ))}
-      </div>
+      </ul>
     </>
-  )
-}
-
-const WorkExperienceItem = (prop: WorkExperience) => {
-  const { companyName, jobTitle, startDate, endDate, description, techStack } = prop
-
-  return (
-    <div className="flex flex-col gap-4">
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-col gap-2">
-          <h3 className="text-xl">{companyName}</h3>
-          <p>
-            <span className="text-semibold">{jobTitle}</span>
-            <span className="text-sm pl-2 text-neutral-400">
-              {formatDateTime(startDate, 'mmyy')}
-              {endDate ? ` - ${formatDateTime(endDate, 'mmyy')}` : ' - present'}
-            </span>
-          </p>
-          <p className="text-sm text-neutral-500">{description}</p>
-        </div>
-        <AnimatedTooltip
-          items={
-            techStack?.map((stack, index) => ({
-              id: index,
-              name: stack.name || '',
-            })) || []
-          }
-        />
-      </div>
-    </div>
   )
 }
 

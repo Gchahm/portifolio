@@ -30,7 +30,7 @@ export const RenderBlocks: React.FC<{
 
   if (hasBlocks) {
     return (
-      <section className="flex flex-col">
+      <section className="flex flex-col gap-12">
         {blocks.map((block, index) => {
           const { blockType } = block
 

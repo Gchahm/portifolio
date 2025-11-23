@@ -66,25 +66,9 @@ export const WorkExperiences: CollectionConfig = {
       label: 'Description',
     },
     {
-      name: 'techStack',
-      type: 'array',
-      label: 'Tech Stack',
-      labels: {
-        singular: 'Technology',
-        plural: 'Technologies',
-      },
-      fields: [
-        {
-          name: 'name',
-          type: 'select',
-          label: 'Icon',
-          required: true,
-          options: getTechStackIconOptions(),
-          admin: {
-            isClearable: true,
-          },
-        },
-      ],
+      name: 'keywords',
+      type: 'text',
+      hasMany: true, // This makes the field store an array of strings
     },
   ],
 }

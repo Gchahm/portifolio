@@ -2,36 +2,12 @@
 
 import React from 'react'
 import { Project } from '@/payload-types'
-import { Variants } from 'motion'
 import Link from 'next/link'
 import { Separator } from '@radix-ui/react-select'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { AnimatedTooltip } from '@/components/ui/animated-tooltip'
-import { cn } from '@/utilities/ui'
-
-const variants = {
-  initial: {
-    x: 0,
-  },
-  animate: {
-    x: 10,
-    transition: {
-      duration: 0.2,
-    },
-  },
-}
-
-const growVariant: Variants = {
-  initial: {
-    scale: 1,
-  },
-  animate: {
-    scale: 1.1,
-    transition: {
-      duration: 0.2,
-    },
-  },
-}
+import { Badge } from '@/components/ui/badge'
+import { GithubSvg } from '@/components/ui/svgs'
+import { Eye } from 'lucide-react'
 
 export const ProjectCard = (project: Project) => {
   const { title, description, slug, image, githubUrl, demoUrl, stack } = project
@@ -39,7 +15,7 @@ export const ProjectCard = (project: Project) => {
 
   return (
     <Card>
-      <CardHeader className="pb-3">
+      <CardHeader className="aspect-video object-cover rounded border-2 border-stone-200/10 transition group-hover:border-stone-200/30 ">
         <div className="aspect-square bg-muted rounded-md mb-3 flex items-center justify-center overflow-hidden">
           <img src={imageDoc?.url || ''} alt={title || ''} className="object-cover max-h-10" />
         </div>
@@ -53,33 +29,23 @@ export const ProjectCard = (project: Project) => {
         </Link>
         {<CardDescription className="line-clamp-3">{description}</CardDescription>}
         <Separator />
-        <div className="flex items-center gap-4 text-sm text-muted-foreground">
-          {/*<Button*/}
-          {/*  variant="ghost"*/}
-          {/*  size="icon-sm"*/}
-          {/*  onClick={handleLikeClick}*/}
-          {/*  disabled={isPending}*/}
-          {/*  className="hover:text-red-500"*/}
-          {/*>*/}
-          {/*  <Heart*/}
-          {/*    className={`h-4 w-4 transition-all ${isLiked ? 'fill-red-500 text-red-500' : ''}`}*/}
-          {/*  />*/}
-          {/*  <span className="ml-1.5">{post.likeCount}</span>*/}
-          {/*</Button>*/}
-          {/*<div className="flex items-center gap-1.5">*/}
-          {/*  <MessageCircle className="h-4 w-4" />*/}
-          {/*  <span>{post.commentCount}</span>*/}
-          {/*</div>*/}
-        </div>
+        <div className="flex items-center gap-4 text-sm text-muted-foreground"></div>
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <AnimatedTooltip
-            items={
-              stack?.map((stack, index) => ({
-                id: index,
-                name: stack.name || '',
-              })) || []
-            }
-          />
+          {stack?.map((item, i) => (
+            <Badge>{item.name}</Badge>
+          ))}
+        </div>
+        <div className="flex flex-row-reverse gap-2">
+          {demoUrl && (
+            <Link href={demoUrl} target="_blank" rel="noopener noreferrer">
+              <Eye />
+            </Link>
+          )}
+          {githubUrl && (
+            <Link href={githubUrl}>
+              <GithubSvg />
+            </Link>
+          )}
         </div>
       </CardContent>
     </Card>

@@ -78,7 +78,7 @@ export async function GitHubReadme({ githubUrl }: GitHubReadmeProps) {
   return (
     <div className="container py-8">
       <div className="max-w-4xl mx-auto">
-        <article className="prose prose-slate dark:prose-invert max-w-none prose-pre:bg-slate-900 prose-pre:text-slate-100">
+        <article className="prose prose-stone dark:prose-invert max-w-none prose-pre:bg-stone-900 prose-pre:text-stone-100">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}

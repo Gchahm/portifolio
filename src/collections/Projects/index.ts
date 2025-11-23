@@ -28,6 +28,11 @@ export const Projects: CollectionConfig<'projects'> = {
       label: 'Title',
       required: true,
     },
+    {
+      name: 'featured',
+      type: 'checkbox',
+      label: 'Is featured',
+    },
     slugField(),
     {
       name: 'description',

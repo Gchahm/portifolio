@@ -24,6 +24,11 @@ const queryProjects = cache(async () => {
   const result = await payload.find({
     collection: 'projects',
     pagination: false,
+    where: {
+      featured: {
+        equals: true,
+      },
+    },
   })
 
   return result.docs
