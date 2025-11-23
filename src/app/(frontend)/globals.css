@@ -32,9 +32,9 @@
   }
 
   :root {
-    --layout-spacing: 900px;
+    --layout-spacing: 1300px;
 
-    --background: 0 0% 96%;
+    --background: 222 47% 11%;
     --layout: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -73,7 +73,7 @@
   }
 
   [data-theme='dark'] {
-    --background: 0 0% 5%;
+    --background: 222 47% 11%;
     --layout: 0 0% 9%;
     --foreground: 210 40% 98%;
 
