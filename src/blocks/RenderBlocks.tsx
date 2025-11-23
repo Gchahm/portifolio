@@ -30,7 +30,7 @@ export const RenderBlocks: React.FC<{
 
   if (hasBlocks) {
     return (
-      <Fragment>
+      <section className="flex flex-col">
         {blocks.map((block, index) => {
           const { blockType } = block
 
@@ -55,7 +55,7 @@ export const RenderBlocks: React.FC<{
           }
           return null
         })}
-      </Fragment>
+      </section>
     )
   }
 

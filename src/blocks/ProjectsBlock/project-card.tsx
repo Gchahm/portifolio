@@ -5,7 +5,7 @@ import { Project } from '@/payload-types'
 import { Variants } from 'motion'
 import Link from 'next/link'
 import { Separator } from '@radix-ui/react-select'
-import { Card, CardContent, CardDescription, CardHeader } from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { AnimatedTooltip } from '@/components/ui/animated-tooltip'
 import { cn } from '@/utilities/ui'
 
@@ -38,26 +38,19 @@ export const ProjectCard = (project: Project) => {
   const imageDoc = typeof image === 'object' && image !== null && 'url' in image ? image : null
 
   return (
-    <Card
-      className="hover:shadow-lg transition-shadow bg-transparent"
-      style={{
-        backdropFilter: 'blur(10px)',
-      }}
-    >
+    <Card>
       <CardHeader className="pb-3">
+        <div className="aspect-square bg-muted rounded-md mb-3 flex items-center justify-center overflow-hidden">
+          <img src={imageDoc?.url || ''} alt={title || ''} className="object-cover max-h-10" />
+        </div>
+      </CardHeader>
+      <CardContent className="space-y-3">
         <Link
           href={`/projects/${slug}`}
           className="flex items-center gap-2 mb-3 hover:opacity-80 transition-opacity"
         >
-          <div className="flex-1">
-            <p className="font-semibold text-sm">{title}</p>
-          </div>
+          <CardTitle title={title}>{title}</CardTitle>
         </Link>
-        <div className="aspect-square bg-muted rounded-md mb-3 flex items-center justify-center overflow-hidden">
-          <img src={imageDoc?.url || ''} alt={title || ''} className="object-cover" />
-        </div>
-      </CardHeader>
-      <CardContent className="space-y-3">
         {<CardDescription className="line-clamp-3">{description}</CardDescription>}
         <Separator />
         <div className="flex items-center gap-4 text-sm text-muted-foreground">
