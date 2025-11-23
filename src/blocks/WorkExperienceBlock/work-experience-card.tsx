@@ -27,14 +27,9 @@ export const WorkExperienceCard = (prop: WorkExperience) => {
         </span>
       </CardHeader>
       <CardContent className="space-y-3">
-        <Link
-          href={`/projects/${jobTitle}`}
-          className="flex items-center gap-2 mb-3 hover:opacity-80 transition-opacity"
-        >
-          <CardTitle>
-            {jobTitle} - {companyName}
-          </CardTitle>
-        </Link>
+        <CardTitle>
+          {jobTitle} - {companyName}
+        </CardTitle>
         {<CardDescription className="line-clamp-3">{description}</CardDescription>}
         <Separator />
         <ul className="flex flex-wrap gap-2">

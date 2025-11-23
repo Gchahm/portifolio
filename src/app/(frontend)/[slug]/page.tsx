@@ -13,6 +13,7 @@ import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { Footer } from '@/Footer/Component'
+import { SectionNavigation } from '@/components/SectionNavigation'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -76,10 +77,11 @@ export default async function Page({ params: paramsPromise }: Args) {
       {hero && (
         <div className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24">
           <RenderHero {...hero} />
+          <SectionNavigation blocks={layout} />
           <Footer />
         </div>
       )}
-      <div className="pt-24 lg:w-[52%] lg:py-24">
+      <div className="pt-24 lg:w-[52%] lg:py-24 flex flex-col gap-24">
         <RenderBlocks blocks={layout} />
       </div>
     </div>

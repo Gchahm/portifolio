@@ -30,7 +30,7 @@ export const RenderBlocks: React.FC<{
 
   if (hasBlocks) {
     return (
-      <section className="flex flex-col gap-12">
+      <>
         {blocks.map((block, index) => {
           const { blockType } = block
 
@@ -39,23 +39,21 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               return (
-                <div
-                  className={cn(
-                    'py-16 p-6',
-                    index % 2 == 0 && 'inse shadow-amber-50 border border-background',
-                  )}
+                <section
                   key={index}
-                  id={blockType}
+                  id={block.blockName || `${index}`}
                 >
-                  {/* @ts-expect-error there may be some mismatch between the expected types here */}
-                  <Block {...block} disableInnerContainer />
-                </div>
+                  <div className={cn('py-16 p-6')}>
+                    {/* @ts-expect-error there may be some mismatch between the expected types here */}
+                    <Block {...block} disableInnerContainer />
+                  </div>
+                </section>
               )
             }
           }
           return null
         })}
-      </section>
+      </>
     )
   }
 
