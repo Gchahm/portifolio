@@ -11,7 +11,6 @@ import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { RenderHero } from '@/heros/RenderHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
-import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { Footer } from '@/Footer/Component'
 import { SectionNavigation } from '@/components/SectionNavigation'
 
