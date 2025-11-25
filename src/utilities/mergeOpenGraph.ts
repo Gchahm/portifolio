@@ -3,7 +3,8 @@ import { getServerSideURL } from './getURL'
 
 const defaultOpenGraph: Metadata['openGraph'] = {
   type: 'website',
-  description: 'An open-source website built with Payload and Next.js.',
+  description:
+    'Senior Software Engineer with 7+ years building scalable systems, microservices, cloud architectures, and applications using .NET, React, Python.',
   images: [
     {
       url: `${getServerSideURL()}/avatar.jpg`,
@@ -12,8 +13,8 @@ const defaultOpenGraph: Metadata['openGraph'] = {
       alt: 'Profile Avatar',
     },
   ],
-  siteName: 'Payload Website Template',
-  title: 'Payload Website Template',
+  siteName: 'Gustavo Francelino | Senior Software Engineer .NET and React',
+  title: 'Gustavo Francelino | Senior Software Engineer .NET and React',
 }
 
 export const mergeOpenGraph = (og?: Metadata['openGraph']): Metadata['openGraph'] => {
