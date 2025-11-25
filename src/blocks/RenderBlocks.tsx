@@ -43,10 +43,8 @@ export const RenderBlocks: React.FC<{
                   key={index}
                   id={block.blockName || `${index}`}
                 >
-                  <div className={cn('py-16 p-6')}>
                     {/* @ts-expect-error there may be some mismatch between the expected types here */}
                     <Block {...block} disableInnerContainer />
-                  </div>
                 </section>
               )
             }
