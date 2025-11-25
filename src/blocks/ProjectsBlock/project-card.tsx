@@ -15,10 +15,8 @@ export const ProjectCard = (project: Project) => {
 
   return (
     <Card>
-      <CardHeader className="aspect-video object-cover rounded border-2 border-stone-200/10 transition group-hover:border-stone-200/30">
-        <div className="aspect-square bg-muted rounded-md flex items-center justify-center overflow-hidden">
-          <img src={imageDoc?.url || ''} alt={title || ''} className="object-cover max-h-10" />
-        </div>
+      <CardHeader className="aspect-video object-cover rounded border-2 border-stone-200/10 transition group-hover:border-stone-200/30 max-h-10">
+          <img src={imageDoc?.url || ''} alt={title || ''} className="object-cover" />
       </CardHeader>
       <CardContent className="space-y-3">
         <Link

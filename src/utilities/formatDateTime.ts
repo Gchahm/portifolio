@@ -1,6 +1,6 @@
 export const formatDateTime = (
   timestamp: string,
-  formatType: 'mm/dd/yyyy' | 'mmyy' = 'mm/dd/yyyy',
+  formatType: 'mm/dd/yyyy' | 'mmyy' | 'yymm' = 'mm/dd/yyyy',
 ): string => {
   if (!timestamp) return ''
 
@@ -11,23 +11,23 @@ export const formatDateTime = (
   const day = date.getDate()
   const YYYY = date.getFullYear()
 
-  if (formatType === 'mmyy') {
+  if (formatType === 'mmyy' || formatType === 'yymm') {
     const monthNames = [
-      'January',
-      'February',
-      'March',
-      'April',
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
       'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
     ]
     const monthName = monthNames[monthIndex]
-    return `${monthName} ${YYYY}`
+    return formatType === 'mmyy' ? `${monthName} ${YYYY}` : `${YYYY} ${monthName}`
   }
 
   const MM = monthIndex + 1 < 10 ? `0${monthIndex + 1}` : monthIndex + 1

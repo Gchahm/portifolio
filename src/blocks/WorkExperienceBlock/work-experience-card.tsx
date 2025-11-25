@@ -20,11 +20,10 @@ export const WorkExperienceCard = (prop: WorkExperience) => {
 
   return (
     <Card>
-      <CardHeader className="pb-3">
-        <span className="text-sm pl-2 text-neutral-400">
-          {formatDateTime(startDate, 'mmyy')}
-          {endDate ? ` - ${formatDateTime(endDate, 'mmyy')}` : ' - present'}
-        </span>
+      <CardHeader className="pb-3 text-sm pl-2 text-neutral-400 flex flex-col justify-around items-center">
+        <span>{endDate ? `${formatDateTime(endDate, 'yymm')}` : 'present'}</span>
+        <span className="grow w-0.5 bg-neutral-400"/>
+        <span>{formatDateTime(startDate, 'yymm')}</span>
       </CardHeader>
       <CardContent className="space-y-3">
         <CardTitle>
