@@ -22,7 +22,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <head>
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
-        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
       <body className="flex justify-center bg-stone-900">
         <Providers>
@@ -31,7 +30,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               preview: isEnabled,
             }}
           />
-          <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-16 lg:py-0">
+          <div className="mx-auto min-h-screen max-w-screen-xl px-2 py-2 font-sans md:px-12 md:py-16 lg:py-0">
             {children}
           </div>
         </Providers>

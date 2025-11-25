@@ -9,7 +9,6 @@ import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { WorkExperienceBlock } from '@/blocks/WorkExperienceBlock/Component'
 import { ProjectsBlock } from '@/blocks/ProjectsBlock/Component'
-import { cn } from '@/utilities/ui'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -39,12 +38,9 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               return (
-                <section
-                  key={index}
-                  id={block.blockName || `${index}`}
-                >
-                    {/* @ts-expect-error there may be some mismatch between the expected types here */}
-                    <Block {...block} disableInnerContainer />
+                <section key={index} id={block.blockName || `${index}`}>
+                  {/* @ts-expect-error there may be some mismatch between the expected types here */}
+                  <Block {...block} disableInnerContainer />
                 </section>
               )
             }
