@@ -9,5 +9,15 @@ export const WorkExperienceBlock: Block = {
       type: 'text',
       required: true,
     },
+    {
+      name: 'cv',
+      type: 'upload',
+      relationTo: 'media',
+      required: false,
+      label: 'CV File',
+      admin: {
+        description: 'Upload your CV (PDF recommended). This will show a "View full CV" button.',
+      },
+    },
   ],
 }

@@ -7,7 +7,7 @@ import { Separator } from '@radix-ui/react-select'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { GithubSvg } from '@/components/ui/svgs'
-import { Eye } from 'lucide-react'
+import { ExternalLinkIcon, Eye } from 'lucide-react'
 
 export const ProjectCard = (project: Project) => {
   const { title, description, slug, image, githubUrl, demoUrl, keywords } = project
@@ -16,14 +16,17 @@ export const ProjectCard = (project: Project) => {
   return (
     <Card>
       <CardHeader className="hidden lg:block aspect-video object-cover rounded border-2 border-stone-200/10 transition group-hover:border-stone-200/30 max-h-10">
-          <img src={imageDoc?.url || ''} alt={title || ''} className="object-cover" />
+        <img src={imageDoc?.url || ''} alt={title || ''} className="object-cover" />
       </CardHeader>
       <CardContent className="space-y-3">
         <Link
           href={`/projects/${slug}`}
           className="flex items-center gap-2 mb-3 hover:opacity-80 transition-opacity"
         >
-          <CardTitle title={title}>{title}</CardTitle>
+          <CardTitle title={title}>
+            {title}
+            <ExternalLinkIcon />
+          </CardTitle>
         </Link>
         {<CardDescription className="line-clamp-3">{description}</CardDescription>}
         <Separator />

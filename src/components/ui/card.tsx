@@ -32,7 +32,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<'h3'>) {
     <h3
       data-slot="card-title"
       className={cn(
-        'inline-flex items-baseline font-medium leading-tight text-stone-200 group-hover:text-indigo-400 focus-visible:text-indigo-800  group/list text-base',
+        'inline-flex items-center gap-1 font-medium leading-tight text-stone-200 group-hover:text-indigo-400 focus-visible:text-indigo-800  group/list text-base',
         className,
       )}
       {...props}

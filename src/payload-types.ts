@@ -761,6 +761,10 @@ export interface Form {
  */
 export interface WorkExperienceBlock {
   title: string;
+  /**
+   * Upload your CV (PDF recommended). This will show a "View full CV" button.
+   */
+  cv?: (string | null) | Media;
   id?: string | null;
   blockName?: string | null;
   blockType: 'workExperienceBlock';
@@ -1220,6 +1224,7 @@ export interface FormBlockSelect<T extends boolean = true> {
  */
 export interface WorkExperienceBlockSelect<T extends boolean = true> {
   title?: T;
+  cv?: T;
   id?: T;
   blockName?: T;
 }
