@@ -7,7 +7,7 @@ import { Media } from '@/components/Media'
 export const ProjectHero: React.FC<{
   project: Project
 }> = ({ project }) => {
-  const { title, description, image, stack, githubUrl, demoUrl } = project
+  const { title, description, image, githubUrl, demoUrl } = project
 
   return (
     <div className="relative -mt-[10.4rem] flex items-end">
@@ -17,9 +17,7 @@ export const ProjectHero: React.FC<{
             <h1 className="mb-6 text-3xl md:text-5xl lg:text-6xl">{title}</h1>
           </div>
 
-          {description && (
-            <p className="text-lg mb-6 max-w-2xl">{description}</p>
-          )}
+          {description && <p className="text-lg mb-6 max-w-2xl">{description}</p>}
 
           <div className="flex flex-wrap gap-4 mb-6">
             {githubUrl && (
@@ -43,19 +41,6 @@ export const ProjectHero: React.FC<{
               </a>
             )}
           </div>
-
-          {stack && stack.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              {stack.map((tech, index) => (
-                <span
-                  key={index}
-                  className="px-3 py-1 bg-white/10 rounded-full text-sm"
-                >
-                  {tech.name}
-                </span>
-              ))}
-            </div>
-          )}
         </div>
       </div>
       <div className="min-h-[80vh] select-none">
