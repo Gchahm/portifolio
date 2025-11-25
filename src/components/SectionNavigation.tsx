@@ -69,7 +69,7 @@ export const SectionNavigation: React.FC<SectionNavigationProps> = ({ blocks }) 
   }
 
   return (
-    <nav className="my-20">
+    <nav className="hidden lg:block my-20">
       <ul className="space-y-1">
         {sections.map((section) => (
           <li key={section.id}>

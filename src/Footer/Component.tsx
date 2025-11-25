@@ -15,8 +15,8 @@ export async function Footer() {
   const navItems = footerData?.navItems || []
 
   return (
-    <footer className="mt-auto">
-      <div className="flex flex-col-reverse items-start md:flex-row gap-4 md:items-center">
+    <footer className="mt-4 lg:mt-0">
+      <div className="flex flex-row items-start gap-4 md:items-center">
         {navItems.map(({ link }, i) => {
           return (
             <Link className="text-white" key={i} href={link.url || ''}>
