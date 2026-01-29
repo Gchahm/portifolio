@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a portfolio/website built with **Payload CMS 3.x** and **Next.js 15** (App Router). It uses MongoDB as the database and is deployed on AWS Amplify.
+This is a portfolio/website built with **Payload CMS 3.x** and **Next.js 15** (App Router). It uses MongoDB as the database and is deployed on Cloudflare.
 
 ## Common Commands
 
@@ -38,7 +38,7 @@ pnpm vitest run <file>      # Run single test file
 - **Frontend**: Next.js 15 App Router, React 19, TailwindCSS 4, shadcn/ui
 - **Database**: MongoDB via `@payloadcms/db-mongodb`
 - **Storage**: AWS S3 via `@payloadcms/storage-s3`
-- **Deployment**: AWS Amplify
+- **Deployment**: Cloudflare
 
 ### Directory Structure
 
@@ -52,7 +52,6 @@ pnpm vitest run <file>      # Run single test file
 - `src/utilities/` - Helper functions
 - `src/providers/` - React context providers (Theme, HeaderTheme)
 - `src/Footer/` and `src/Header/` - Global configurations
-- `amplify/` - AWS Amplify backend configuration
 
 ### Path Aliases
 - `@/*` maps to `./src/*`

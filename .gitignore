@@ -23,7 +23,3 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 
-# amplify
-.amplify
-amplify_outputs*
-amplifyconfiguration*
