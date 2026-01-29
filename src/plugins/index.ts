@@ -12,7 +12,7 @@ import { beforeSyncWithSearch } from '@/search/beforeSync'
 
 import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
-import { s3Storage } from '@payloadcms/storage-s3'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title}` : 'Gustavo Francelino | Senior Software Engineer .NET and React'
@@ -90,17 +90,10 @@ export const plugins: Plugin[] = [
       },
     },
   }),
-  s3Storage({
+  vercelBlobStorage({
     collections: {
       media: true,
     },
-    bucket: process.env.S3_BUCKET!,
-    config: {
-      region: process.env.S3_REGION!,
-      credentials: {
-        accessKeyId: process.env.ACCESS_KEY_ID!,
-        secretAccessKey: process.env.SECRET_ACCESS_KEY!,
-      },
-    },
+    token: process.env.BLOB_READ_WRITE_TOKEN,
   }),
 ]
