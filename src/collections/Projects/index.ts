@@ -61,5 +61,23 @@ export const Projects: CollectionConfig<'projects'> = {
       type: 'text',
       hasMany: true, // This makes the field store an array of strings
     },
+    {
+      name: 'gallery',
+      type: 'array',
+      label: 'Gallery Images',
+      fields: [
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+          required: true,
+        },
+        {
+          name: 'caption',
+          type: 'text',
+          label: 'Caption',
+        },
+      ],
+    },
   ],
 }

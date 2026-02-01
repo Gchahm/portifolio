@@ -815,6 +815,13 @@ export interface Project {
   githubUrl?: string | null;
   demoUrl?: string | null;
   keywords?: string[] | null;
+  gallery?:
+    | {
+        image: string | Media;
+        caption?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1435,6 +1442,13 @@ export interface ProjectsSelect<T extends boolean = true> {
   githubUrl?: T;
   demoUrl?: T;
   keywords?: T;
+  gallery?:
+    | T
+    | {
+        image?: T;
+        caption?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
