@@ -45,10 +45,10 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ projects }) => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
-            Featured Work
+            All Projects
           </h2>
           <p className="mx-auto max-w-2xl text-gray-400">
-            A selection of projects that showcase problem-solving, creativity, and technical expertise.
+            A collection of projects that showcase problem-solving, creativity, and technical expertise.
           </p>
         </motion.div>
 

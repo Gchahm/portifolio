@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { motion } from 'motion/react'
 
 export const ProjectsHero: React.FC = () => {
@@ -93,10 +94,11 @@ export const ProjectsHero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <span className="text-white">Building the </span>
+          <span className="text-white">A decade of building</span>
+          <br />
           <span className="relative">
             <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              future
+              things that matter
             </span>
             {/* Underline glow */}
             <motion.span
@@ -106,8 +108,6 @@ export const ProjectsHero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
             />
           </span>
-          <br />
-          <span className="text-white">one project at a time</span>
         </motion.h1>
 
         {/* Subheading */}
@@ -117,9 +117,38 @@ export const ProjectsHero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          From concept to deployment. Explore a collection of projects
-          that push boundaries and solve real problems.
+          From startups to Microsoft. Enterprise systems to weekend experiments.
+          Here's what I've shipped.
         </motion.p>
+
+        {/* Back to home button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-8"
+        >
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-gray-300 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10 hover:text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m12 19-7-7 7-7" />
+              <path d="M19 12H5" />
+            </svg>
+            Back to Home
+          </Link>
+        </motion.div>
 
         {/* Scroll indicator */}
         <motion.div
