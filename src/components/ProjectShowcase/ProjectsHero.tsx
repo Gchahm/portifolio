@@ -118,7 +118,7 @@ export const ProjectsHero: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           From startups to Microsoft. Enterprise systems to weekend experiments.
-          Here's what I've shipped.
+          Here&apos;s what I&apos;ve shipped.
         </motion.p>
 
         {/* Back to home button */}
